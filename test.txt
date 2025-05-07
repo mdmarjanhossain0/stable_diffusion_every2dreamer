@@ -11,3 +11,4 @@ python scripts/txt2img.py ^
 
 
 python scripts/txt2img.py --diffusers_path "logs\project_abc-20250506-201629\ckpts\errored-project_abc-ep20-gs00260" --prompt "A bottle of 7 cm radius"
+python scripts/txt2img.py --diffusers_path "logs\project_abc_moti-20250507-111608\ckpts\last-project_abc_moti-ep20-gs00120" --prompt "onimoti in beach"
