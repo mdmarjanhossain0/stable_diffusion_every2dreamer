@@ -1,0 +1,13 @@
+python scripts/txt2img.py ^
+  --diffusers_path "logs\project_abc-20250506-201629\ckpts\errored-project_abc-ep20-gs00260" ^
+  --prompt "A bottle of 7 cm radius" ^
+  --height 512 ^
+  --width 512 ^
+  --steps 30 ^
+  --cfg_scale 7.5 ^
+  --seed 42 ^
+  --batch_size 1 ^
+  --batch_count 1
+
+
+python scripts/txt2img.py --diffusers_path "logs\project_abc-20250506-201629\ckpts\errored-project_abc-ep20-gs00260" --prompt "A bottle of 7 cm radius"
