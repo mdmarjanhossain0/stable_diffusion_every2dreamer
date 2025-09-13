@@ -1,14 +1,37 @@
 python scripts/txt2img.py ^
-  --diffusers_path "logs\project_abc-20250506-201629\ckpts\errored-project_abc-ep20-gs00260" ^
-  --prompt "A bottle of 7 cm radius" ^
+  --diffusers_path "logs\myproj-20250910-194035\ckpts\last-myproj-ep100-gs03600" ^
+  --prompt "A bottle of 5 cm height of whisky" ^
   --height 512 ^
   --width 512 ^
-  --steps 30 ^
+  --steps 50 ^
   --cfg_scale 7.5 ^
-  --seed 42 ^
   --batch_size 1 ^
   --batch_count 1
+  
+   ^
+  --seed 42 ^
 
 
 python scripts/txt2img.py --diffusers_path "logs\project_abc-20250506-201629\ckpts\errored-project_abc-ep20-gs00260" --prompt "A bottle of 7 cm radius"
 python scripts/txt2img.py --diffusers_path "logs\project_abc_moti-20250507-111608\ckpts\last-project_abc_moti-ep20-gs00120" --prompt "onimoti in beach"
+
+python utils/convert_original_stable_diffusion_to_diffusers.py --scheduler_type ddim ^
+--original_config_file v1-inference.yaml ^
+--image_size 512 ^
+--checkpoint_path v1-5-pruned-emaonly.ckpt ^
+--to_safetensors ^
+--prediction_type epsilon ^
+--dump_path "ckpt_cache/my_sd15_model"
+
+
+python train.py --resume_ckpt "panopstor/EveryDream" ^
+--data_root "./training_samples" ^
+--max_epochs 100 ^
+--lr_scheduler cosine ^
+--lr_decay_steps 1500 ^
+--lr_warmup_steps 20 ^
+--project_name myproj ^
+--batch_size 2 ^
+--sample_steps 100 ^
+--lr 1.5e-6 ^
+--save_every_n_epochs 100

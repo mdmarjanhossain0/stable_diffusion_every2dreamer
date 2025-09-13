@@ -1,0 +1,28 @@
+digraph Flowchart {
+	rankdir=TB size="8,10"
+	A [label="Start: User Prompt
+(with description + dimensions)" fillcolor=lightblue shape=oval style=filled]
+	B [label="Prompt Parsing
+(Semantic + Measurement)" fillcolor=lightyellow shape=box style="rounded,filled"]
+	C [label="Semantic Encoding
+(Text embeddings)" fillcolor=lightgreen shape=box style="rounded,filled"]
+	D [label="Measurement Encoding
+(Constraint vector)" fillcolor=lightpink shape=box style="rounded,filled"]
+	E [label="Stable Diffusion Generation
+Guided by both embeddings" fillcolor=lightgrey shape=box style="rounded,filled"]
+	F [label="Dimension Validation
+(Check if output matches)" fillcolor=orange shape=diamond style=filled]
+	G [label="Refinement Loop
+Adjust latent space" fillcolor=lightcoral shape=box style="rounded,filled"]
+	H [label="Final Output Image
+(Semantic + Exact Dimensions)" fillcolor=lightblue shape=oval style=filled]
+	A -> B
+	B -> C
+	B -> D
+	C -> E
+	D -> E
+	E -> F
+	F -> H [label=Yes]
+	F -> G [label=No]
+	G -> E
+}
